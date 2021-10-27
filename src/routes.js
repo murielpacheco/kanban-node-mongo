@@ -1,6 +1,9 @@
-import { Router } from 'express';
-const routes = Router();
+const express = require('express');
+const routes = express.Router();
+const MessageController = require('./controllers/MessageController')
 
-routes.get('/', (request, response) => response.send('Hello World'));
+routes.get('/messages', MessageController.index)
+routes.post('/messages', MessageController.store)
 
-export { routes };
+
+module.exports = routes;
